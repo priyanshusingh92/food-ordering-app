@@ -16,6 +16,13 @@ useEffect(()=>{
         return;
     }
     setBtnIsHighlighted(true);
+    const timer = setTimeout(()=>{
+        setBtnIsHighlighted(false);
+    },300)
+
+    return ()=>{
+        clearTimeout(timer);
+    }
 },[cartCtx.items])
     return<button onClick={props.onClick} className={btnClasses}>
         <span className={classes.icon}>
